@@ -1,0 +1,13 @@
+name: Trigger /reorder/reorder
+
+on:
+  schedule:
+    - cron: '30 4 * * *'  # 10:00 AM IST
+  workflow_dispatch:
+
+jobs:
+  call-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call POST /reorder/reorder
+        run: curl -X POST http://172.188.80.68/mcp1/reorder/reorder

@@ -1,0 +1,13 @@
+name: Trigger /metadata/generate-metadata
+
+on:
+  schedule:
+    - cron: '14 4 * * *'  # 09:44 AM IST
+  workflow_dispatch:
+
+jobs:
+  call-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call POST /metadata/generate-metadata
+        run: curl -X POST http://172.188.80.68/mcp1/metadata/generate-metadata

@@ -1,0 +1,13 @@
+name: Trigger /generate/structure
+
+on:
+  schedule:
+    - cron: '46 2 * * *'  # 08:16 AM IST
+  workflow_dispatch:
+
+jobs:
+  call-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call POST /generate/structure
+        run: curl -X POST http://172.188.80.68/mcp1/generate/structure

@@ -1,0 +1,13 @@
+name: Trigger /distribute/distribute-urls
+
+on:
+  schedule:
+    - cron: '50 3 * * *'  # 09:20 AM IST
+  workflow_dispatch:
+
+jobs:
+  call-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call POST /distribute/distribute-urls
+        run: curl -X POST http://172.188.80.68/mcp1/distribute/distribute-urls

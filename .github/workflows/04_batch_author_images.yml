@@ -1,0 +1,13 @@
+name: Trigger /images/batch-author-images
+
+on:
+  schedule:
+    - cron: '54 2 * * *'  # 08:24 AM IST
+  workflow_dispatch:
+
+jobs:
+  call-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call POST /images/batch-author-images
+        run: curl -X POST http://172.188.80.68/mcp1/images/batch-author-images

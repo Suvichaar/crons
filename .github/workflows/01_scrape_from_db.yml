@@ -1,0 +1,13 @@
+name: Trigger /quotes/scrape-from-db
+
+on:
+  schedule:
+    - cron: '30 2 * * *'  # 08:00 AM IST
+  workflow_dispatch:
+
+jobs:
+  call-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call POST /quotes/scrape-from-db
+        run: curl -X POST http://172.188.80.68/mcp1/quotes/scrape-from-db
