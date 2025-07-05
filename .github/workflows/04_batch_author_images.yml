@@ -10,4 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call POST /images/batch-author-images
-        run: curl -X POST http://172.188.80.68/mcp1/images/batch-author-images
+        run: |
+          echo "Calling /images/batch-author-images endpoint..."
+          curl --max-time 900 \
+               --connect-timeout 30 \
+               --retry 3 \
+               --retry-delay 5 \
+               --retry-connrefused \
+               -X POST http://172.188.80.68/mcp1/images/batch-author-images
